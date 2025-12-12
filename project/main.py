@@ -30,6 +30,7 @@ class MainWindow(QMainWindow):
 
         # Title
         intro_label = QLabel("Welcome to PyGrab 🐍▶️", self)
+        intro_label.setAlignment(Qt.AlignHCenter)
         font_id = QFontDatabase.addApplicationFont("resource/Fonts/ByteBounce.ttf")
         font_family = QFontDatabase.applicationFontFamilies(font_id)[0]
         intro_label.setFont(QFont(font_family, 30))
@@ -56,7 +57,7 @@ class MainWindow(QMainWindow):
 
         # Row 2 — Quality
         hbox2 = QHBoxLayout()
-        hbox2.setAlignment(Qt.AlignHCenter)
+        hbox2.setAlignment(Qt.AlignLeft)
         hbox2.setSpacing(15)
         vbox.addLayout(hbox2)
 
