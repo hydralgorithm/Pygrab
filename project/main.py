@@ -1,6 +1,6 @@
 # PyGrab
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QHBoxLayout, QWidget, QLineEdit, QPushButton
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QHBoxLayout, QWidget, QLineEdit, QPushButton, QComboBox
 from PyQt5.QtGui import QIcon, QFont, QFontDatabase
 from PyQt5.QtCore import Qt
 
@@ -80,11 +80,64 @@ class MainWindow(QMainWindow):
                 background-color: #45a049;   /* darker green click effect */
             }
         """)
-
-
+        # Adding widgets
         hbox1.addWidget(label_url)
         hbox1.addWidget(url_input)
         hbox1.addWidget(download_btn)
+
+        # row 2
+        hbox2 = QHBoxLayout()
+        hbox2.setAlignment(Qt.AlignHCenter)
+        vbox.addLayout(hbox2)
+
+        # quality label
+        label_quality = QLabel("Enter video quality: ", self)
+        label_quality.setStyleSheet("font-size: 20px;"
+                                    "color: #d0f7c1")
+        
+        # quality dropdown
+        quality_dropdown = QComboBox(self)
+        quality_dropdown.addItems(["720p", "480p", "360p", "240p", "144p"])
+        quality_dropdown.setCurrentText("720p")
+        quality_dropdown.setCursor(Qt.PointingHandCursor)
+        quality_dropdown.setStyleSheet("""
+                    QComboBox {
+                        font-size: 20px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        background-color: #ddebd8;
+                        border: none;
+                        min-width: 150px;
+                    }
+                    
+                    QComboBox:hover {
+                        background-color: #c9e3c3;
+                    }
+                    
+                    QComboBox::drop-down {
+                        border: none;
+                        width: 30px;
+                    }
+                    
+                    QComboBox::down-arrow {
+                        image: none;
+                        border-left: 5px solid transparent;
+                        border-right: 5px solid transparent;
+                        border-top: 8px solid #4caf50;
+                        margin-right: 10px;
+                    }
+                    
+                    QComboBox QAbstractItemView {
+                        background-color: #ddebd8;
+                        selection-background-color: #4caf50;
+                        selection-color: white;
+                        font-size: 18px;
+                        border: 1px solid #4caf50;
+                    }
+        """)
+        # Adding widgets
+        hbox2.addWidget(label_quality)
+        hbox2.addWidget(quality_dropdown)
 
 def main():
     app = QApplication(sys.argv)
