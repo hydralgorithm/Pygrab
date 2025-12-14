@@ -75,7 +75,7 @@ class MainWindow(QMainWindow):
     def apply_styles(self):
         self.label_url.setStyleSheet("font-size: 20px; color: #d0f7c1")
         self.label_quality.setStyleSheet("font-size: 20px; color: #d0f7c1")
-
+# input style sheet
         self.url_input.setStyleSheet("""
             font-size: 20px;
             padding: 10px;
